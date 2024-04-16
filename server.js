@@ -94,7 +94,7 @@ app.set("views", path.join(__dirname, "views"));
 // routes
 app.use("/api/v1/stock", stockRoute);
 app.use("/api/v1/user", userRoute);
-// Default route
+// this is Default route 
 app.get("/", async (req, res) => {
   res.render("pages/index.ejs");
 });
