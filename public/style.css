@@ -253,3 +253,9 @@ button.btn.btn-success.add-btn {
  .updatepage{
     min-height: 65vh;
  }
+
+ /* newpage */
+
+ .newpage{
+    min-height: 58vh;
+ }

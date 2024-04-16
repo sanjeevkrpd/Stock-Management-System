@@ -24,7 +24,8 @@
       <h5 class="bold">Just Go To You'r WorkSpace</h5>
       <a class="btn btn-success" href="/api/v1/stock/home">My WorkSpace</a>
     </div>
-    <% } %> <% if(!currUser) { %>
+    <% } %> 
+    <% if(!currUser) { %>
     <div class="offset-1 small mb-3">
       <h5>Please Login To Go To Your WorkSpace</h5>
       <a class="btn btn-success" href="/api/v1/user/login">Login</a>

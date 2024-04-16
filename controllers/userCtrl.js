@@ -1,3 +1,4 @@
+const userModel = require("../models/userModel");
 const User = require("../models/userModel");
 // render login form
 const getLoginController = (req, res) => {
@@ -20,6 +21,13 @@ const getRegisterController = (req, res) => {
 const registerController = async (req, res) => {
   try {
     let { email, username, password } = req.body;
+
+    let userExist = await userModel.findOne({ email });
+    if (userExist) {
+      req.flash("error", "User Already Registered With This Email");
+      return res.redirect("/api/v1/user/register");
+    }
+
     const newUser = new User({ email, username });
 
     const regiseteredUser = await User.register(newUser, password);
@@ -35,7 +43,7 @@ const registerController = async (req, res) => {
 
     req.flash("success", "Welcome to Stock Management .");
 
-    res.redirect("/");
+    res.redirect("/api/v1/stock/home");
   } catch (error) {
     console.log(error.message);
     req.flash("error", "Something Went Wrong In Registering. ");
