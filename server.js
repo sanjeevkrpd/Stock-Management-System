@@ -1,9 +1,14 @@
+if (process.env.NODE_ENV != "production") {
+  require("dotenv").config();
+}
+
 const express = require("express");
 const dotenv = require("dotenv");
 const ejs = require("ejs");
 const ejsMate = require("ejs-mate");
 const path = require("path");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy; // Import the Strategy object
 const flash = require("connect-flash");
@@ -46,21 +51,28 @@ main()
 
 dotenv.config();
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  session({
+
+const store = MongoStore.create({
+  mongoUrl: MONGO_URL,
+  crypto: {
     secret: process.env.MY_SUPER_SECRET_CODE,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
-      maxAge: 7 * 24 * 60 * 60 * 1000,
-      httpOnly: true,
-    },
-  })
-);
+  },
+  touchAfter: 24 * 3600,
+});
+
+store.on("error", () => {
+  console.log("Error In Mongo Session Stroe", err);
+});
+const sessionOption = {
+  store,
+  secret: process.env.MY_SUPER_SECRET_CODE,
+  resave: false,
+  saveUninitialized: true,
+};
+
+app.use(session(sessionOption));
 app.use(flash());
 app.use(passport.initialize());
-app.use(passport.session());
 
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());

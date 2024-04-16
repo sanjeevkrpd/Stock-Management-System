@@ -12,24 +12,24 @@ const {
 const router = express.Router();
 
 // get Method || Rendering Home page
-router.get("/home", getHomePageController);
+router.get("/home",isLoggedIn, getHomePageController);
 
 // get Method || Rendering Add page
-router.get("/add", getAddPageController);
+router.get("/add",isLoggedIn, getAddPageController);
 
 // Post Method || Add
-router.post("/add", addController);
+router.post("/add",isLoggedIn, addController);
 
 // get Method || Rendering Update Page
-router.get("/update/:id", getUpdatePageController);
+router.get("/update/:id",isLoggedIn, getUpdatePageController);
 
 // patch Update Route
-router.put("/update/:id", updateController);
+router.put("/update/:id",isLoggedIn, updateController);
 
 // get Method || Rendering Edit Page
-router.get("/:id", editPageController);
+router.get("/:id",isLoggedIn, editPageController);
 
 // patch Update Route
-router.post("/delete", deleteController);
+router.post("/delete",isLoggedIn, deleteController);
 
 module.exports = router;
