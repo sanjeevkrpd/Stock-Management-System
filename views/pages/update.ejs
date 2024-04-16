@@ -1,0 +1,82 @@
+<% layout('layouts/boilerplate.ejs') -%> <br /><br />
+<body>
+  <h1 style="text-align: center">
+    <span class="header">Hii ! <%= currUser.username.toUpperCase() %> </span>
+  </h1>
+  <div class="row updatepage">
+    <div class="col-8 offset-2">
+      <form
+        method="POST"
+        action="/api/v1/stock/update/<%= stock._id %>?_method=PUT"
+        class="needs-validation"
+        novalidate
+      >
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="title"
+            class="form-control"
+            id="title"
+            name="stock[title]"
+            value="<%= stock.title%>"
+            required
+          />
+          <div class="valid-feedback">title looks good</div>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="company"
+            class="form-control"
+            id="company"
+            name="stock[company]"
+            value="<%= stock.company%>"
+            required
+          />
+          <div class="valid-feedback">title looks good</div>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea
+            rows="4"
+            class="form-control"
+            id="description"
+            name="stock[description]"
+            required
+          >
+<%= stock.description%></textarea
+          >
+          <div class="invalid-feedback">description should be valid</div>
+        </div>
+
+        <div class="row">
+          <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              id="price"
+              name="stock[currentPrice]"
+              value="<%= stock.currentPrice  %>"
+              required
+            />
+            <div class="invalid-feedback">Price should be valid</div>
+          </div>
+          <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Quantity</label>
+            <input
+              type="number"
+              class="form-control"
+              name="stock[quantity]"
+              id="country"
+              value="<%= stock.quantity  %>"
+              required
+            />
+            <div class="invalid-feedback">Quantity name should be valid</div>
+          </div>
+        </div>
+        <button class="btn btn-success edit-btn">Update</button>
+      </form>
+    </div>
+  </div>
+</body>

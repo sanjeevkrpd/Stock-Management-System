@@ -1,0 +1,255 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+.color {
+    color: blueviolet;
+}
+
+.bold {
+    font-size: 1.8rem;
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a i {
+    margin-left: 1rem;
+    margin-right: 0.3rem;
+    color: blueviolet;
+}
+
+
+
+
+.nav-link {
+    color: #000 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar-nav a {
+    margin-right: 1.5rem;
+}
+
+.navbar-nav a i {
+    font-size: 0.9rem;
+    margin-left: 0.1rem;
+
+}
+
+.navbar-nav a:hover {
+    font-weight: bold;
+}
+
+@media only screen and (max-width: 750px) {
+    .navbar-nav {
+        margin-top: 1rem;
+        margin-left: 1rem;
+        margin-right: auto;
+    }
+}
+
+/* Index page */
+
+.indexpage{
+
+   height: 66vh;
+}
+
+.container {
+    display: flex;
+    min-height: auto;
+    justify-content: space-between;
+}
+
+
+.center {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container-2 {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.heading{
+
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    color: green;
+}
+
+
+
+
+
+@media only screen and (max-width: 500px) {
+   .container{
+    flex-direction: column-reverse;
+   }
+   .small{
+    text-align: center;
+     font-size: medium;
+   }
+   .card {
+    margin-left: 0 !important;
+   }
+
+}
+
+
+/* Footer */
+
+.f-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ebebeb;
+    min-height: 7rem;
+    margin-top: 2rem;
+    row-gap: 8px;
+    width: 100%;
+}
+
+.f-info-socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #222222;
+    margin-bottom: 5px;
+}
+
+.f-info-socials a {
+    color: #222222;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.f-info-socials i:hover {
+    cursor: pointer;
+}
+
+.f-info-company {
+    font-weight: 600;
+    color: #222222;
+}
+
+.f-info-links a {
+    text-decoration: none;
+    color: #222222;
+}
+
+.f-info-links a:hover {
+    text-decoration: underline;
+}
+
+button.btn.btn-success.add-btn {
+    margin-bottom: 5rem;
+}
+
+/* scanner */
+
+.scanner{
+    height: 100px;
+    width: auto;
+    
+}
+
+
+
+/* Login Page && Register page */
+.logindiv,.registerdiv{
+    min-height: 64vh;
+}
+
+
+
+/* Help */
+
+.container-help{
+    display: flex;
+    min-height: 72vh;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.firstColumn{
+    width: 40%;
+    height: 100%;
+
+}
+.secondColumn{
+    width: 40%  !important;
+    height: 100%;
+}
+
+@media only screen and (max-width: 500px) {
+    
+    .container-help{
+
+        flex-direction: column-reverse;
+    
+    }
+    .firstColumn{
+        width: 100%;
+    }
+    .secondColumn{
+        width: 100%  !important;
+        
+    }
+ }
+ 
+
+ /* homepage  */
+
+ .homepage{
+    min-height: 61vh;
+ }
+
+ .box{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+ }
+
+ .header{
+    color: green;
+    text-align: center;
+    border-bottom: 2px solid green;
+ }
+
+ /* edit page */
+
+ .editpage{
+    min-height: 61vh;
+ }
+ .container-edit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3rem;
+ }
+ /* update page */
+
+ .updatepage{
+    min-height: 65vh;
+ }

@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-md text-bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand bold white" href=""
+      ><i class="fa-solid fa-layer-group"></i> Stock Management</a
+    >
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNavAltMarkup"
+      aria-controls="navbarNavAltMarkup"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/"
+          ><i class="fa-solid fa-house-user"></i>Home</a
+        >
+
+        <a class="nav-link" href="/api/v1/user/help"
+          ><i class="fa-regular fa-circle-question"></i> Help</a
+        >
+        <!-- <a class="nav-link" href="/api/v1/user/contact"><i class="fa-solid fa-file-signature"></i>Contact</a> -->
+        <% if(!currUser) {%>
+        <a class="nav-link" href="/api/v1/user/login"
+          ><i class="fa-solid fa-right-to-bracket"></i>Login</a
+        >
+        <a class="nav-link" href="/api/v1/user/register"
+          ><i class="fa-regular fa-user"></i>Register</a
+        >
+        <% } %> <% if(currUser) {%>
+
+        <a class="nav-link" href="/api/v1/user/logout"
+          ><i class="fa-solid fa-down-left-and-up-right-to-center"></i>Logout</a
+        >
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>

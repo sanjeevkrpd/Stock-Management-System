@@ -1,0 +1,44 @@
+<% layout('layouts/boilerplate.ejs') -%> <br /><br />
+
+<body>
+  <h1 style="text-align: center">
+    <span class="header">Hii ! <%= currUser.username.toUpperCase() %> </span>
+  </h1>
+  <div class="homepage">
+    <div class="box table-responsive mt-5 mb-5">
+      <table class="table align-middle">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">description</th>
+            <th scope="col">currentPrice</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% stocks.forEach(function(stock, index) { %>
+          <tr>
+            <th scope="row"><%= index + 1 %></th>
+            <td><%= stock.title %></td>
+            <td><%= stock.description %></td>
+            <td><%= stock.currentPrice %></td>
+            <td><%= stock.quantity %></td>
+            <td><%= stock.currentPrice * stock.quantity %></td>
+            <td>
+              <a href="/api/v1/stock/<%= stock._id %>" class="btn btn-success"
+                >Edit</a
+              >
+            </td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="box">
+      <a class="btn btn-primary" href="/api/v1/stock/add">Add Product</a>
+    </div>
+  </div>
+</body>
