@@ -18,7 +18,7 @@ const getRegisterController = (req, res) => {
 
 // register controller
 
-const registerController = async (req, res) => {
+const registerController = async (req, res, next) => {
   try {
     let { email, username, password } = req.body;
 
@@ -28,25 +28,24 @@ const registerController = async (req, res) => {
       return res.redirect("/api/v1/user/register");
     }
 
-    const newUser = new User({ email, username });
+    const newUser = new userModel({ email, username }); // Change User to userModel
 
-    const regiseteredUser = await User.register(newUser, password);
-    console.log(regiseteredUser);
+    const registeredUser = await newUser.save(); // Save the new user to the database
 
-    req.login(regiseteredUser, (err) => {
+    req.login(registeredUser, (err) => {
       if (err) {
         return next(err);
       }
-      req.flash("success", "Welcome to Stock Management .");
-      res.redirect("/");
+      req.flash("success", "Welcome to Stock Management.");
+      res.redirect("/api/v1/stock/home");
     });
-
-    req.flash("success", "Welcome to Stock Management .");
-
-    res.redirect("/api/v1/stock/home");
+    // This line will not be executed as the response is already redirected above
+    // req.flash("success", "Welcome to Stock Management.");
+    // res.redirect("/api/v1/stock/home");
   } catch (error) {
     console.log(error.message);
-    req.flash("error", "Something Went Wrong In Registering. ");
+    req.flash("error", "Something Went Wrong In Registering.");
+    res.redirect("/api/v1/user/register"); // Redirect to the registration page in case of error
   }
 };
 

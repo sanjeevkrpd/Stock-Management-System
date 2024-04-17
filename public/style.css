@@ -259,3 +259,8 @@ button.btn.btn-success.add-btn {
  .newpage{
     min-height: 58vh;
  }
+ /* index */
+ .login{
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+ }
