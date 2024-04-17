@@ -262,5 +262,15 @@ button.btn.btn-success.add-btn {
  /* index */
  .login{
     margin-top: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
+ }
+
+ /* search buttom */
+
+ .search-btn{
+    margin-left: auto;
+    padding-left: 2rem;
+ }
+ .search-box{
+    border-radius: 20px !important;
  }

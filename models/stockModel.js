@@ -10,6 +10,10 @@ const stockSchema = mongoose.Schema(
       type: String,
       required: [true, "Company is Required"],
     },
+    // category: {
+    //   type: String,
+    //   required: [true, "Category is Required"],
+    // },
     description: {
       type: String,
     },

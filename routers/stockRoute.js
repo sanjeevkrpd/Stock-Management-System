@@ -8,28 +8,34 @@ const {
   updateController,
   editPageController,
   deleteController,
+  searchController,
 } = require("../controllers/stockCtrl");
+const userModel = require("../models/userModel");
 const router = express.Router();
 
 // get Method || Rendering Home page
-router.get("/home",isLoggedIn, getHomePageController);
+router.get("/home", isLoggedIn, getHomePageController);
 
 // get Method || Rendering Add page
-router.get("/add",isLoggedIn, getAddPageController);
+router.get("/add", isLoggedIn, getAddPageController);
 
 // Post Method || Add
-router.post("/add",isLoggedIn, addController);
+router.post("/add", isLoggedIn, addController);
 
 // get Method || Rendering Update Page
-router.get("/update/:id",isLoggedIn, getUpdatePageController);
+router.get("/update/:id", isLoggedIn, getUpdatePageController);
 
 // patch Update Route
-router.put("/update/:id",isLoggedIn, updateController);
+router.put("/update/:id", isLoggedIn, updateController);
 
 // get Method || Rendering Edit Page
-router.get("/:id",isLoggedIn, editPageController);
+router.get("/:id", isLoggedIn, editPageController);
 
 // patch Update Route
-router.post("/delete",isLoggedIn, deleteController);
+router.post("/delete", isLoggedIn, deleteController);
+
+//search route
+
+router.post("/search", isLoggedIn, searchController);
 
 module.exports = router;

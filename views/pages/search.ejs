@@ -1,0 +1,36 @@
+<% layout('layouts/boilerplate.ejs') -%> <br /><br />
+<body>
+  <h1 style="text-align: center">
+    <span class="header">Hii ! <%= currUser.username.toUpperCase() %> </span>
+  </h1>
+  <div class="editpage">
+    <% for(stock of searchResults) { %>
+    <div class="container-edit">
+      <div class="card" style="width: 40rem; height: 22rem">
+        <div class="card-body">
+          <h5 class="card-title">Product Name : <%= stock.title %></h5>
+          <p class="card-text">Product Description :<%= stock.description %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Supplier : <%= stock.company %></li>
+          <li class="list-group-item">Price : <%= stock.currentPrice %></li>
+          <li class="list-group-item">Quantity :<%= stock.quantity %></li>
+          <li class="list-group-item">
+            Totoal :<%= stock.currentPrice * stock.quantity %>
+          </li>
+        </ul>
+        <div class="card-body" style="display: flex">
+          <form action="/api/v1/stock/update/<%= stock._id %>" method="get">
+            <button class="btn btn-success offset-2">Update</button>
+          </form>
+          <form action="/api/v1/stock/delete" method="POST">
+            <input type="hidden" name="userId" value="<%= currUser._id %>" />
+            <input type="hidden" name="stockId" value="<%= stock._id %>" />
+            <button type="submit" class="btn btn-dark offset-5">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</body>

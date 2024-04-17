@@ -15,6 +15,26 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <% if(currUser) { %>
+      <form
+        class="d-flex search-btn"
+        role="search"
+        method="post"
+        action="/api/v1/stock/search"
+      >
+        <input
+          class="form-control me-2 search-box"
+          type="search"
+          placeholder=" Product Name"
+          aria-label="Search"
+          name="title"
+        />
+        <input type="hidden" name="userId" value="<%= currUser._id  %>" />
+        <button class="btn search-btn" type="submit">
+          <i class="fa-solid fa-magnifying-glass"></i>Search
+        </button>
+      </form>
+      <% } %>
       <div class="navbar-nav">
         <a class="nav-link" href="/"
           ><i class="fa-solid fa-house-user"></i>Home</a

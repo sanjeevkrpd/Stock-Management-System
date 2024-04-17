@@ -105,6 +105,26 @@ const deleteController = async (req, res) => {
   }
 };
 
+const searchController = async (req, res) => {
+  try {
+    const user = await userModel.findById(req.body.userId).populate("stocks");
+
+    // Filter stocks based on the search query
+    const searchResults = user.stocks.filter(stock => stock.title.includes(req.body.title));
+
+    if (searchResults.length === 0) {
+      req.flash("error", "Oops! No results found.");
+      return res.redirect("/"); // Redirect to the homepage or another appropriate route
+    }
+
+    req.flash("success", "Search results found.");
+    res.render("pages/search.ejs", { searchResults });
+  } catch (error) {
+    console.log(error);
+    req.flash("error", "Something went wrong.");
+    res.redirect("/api/v1/user/login");
+  }
+}
 module.exports = {
   getHomePageController,
   getAddPageController,
@@ -114,4 +134,5 @@ module.exports = {
   deleteController,
   editPageController,
   deleteController,
+  searchController
 };
