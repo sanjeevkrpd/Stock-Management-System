@@ -20,14 +20,16 @@
     </div>
 
     <% if(currUser) {%>
-    <div class="offset-1 small mb-3">
+    <div class="offset-1 small mb-1">
       <h5 class="bold">Just Go To You'r WorkSpace</h5>
-      <a class="btn btn-success" href="/api/v1/stock/home">My WorkSpace</a>
+      <a class="btn btn-success login" href="/api/v1/stock/home"
+        >My WorkSpace</a
+      >
     </div>
     <% } %> <% if(!currUser) { %>
     <div class="offset-1 small mt-1">
       <h5>Please Login To Go To Your WorkSpace</h5>
-      <a class="btn btn-success login" href="/api/v1/user/login">Login</a>
+      <a class="btn btn-success" href="/api/v1/user/login">Login</a>
     </div>
     <% } %>
   </div>
