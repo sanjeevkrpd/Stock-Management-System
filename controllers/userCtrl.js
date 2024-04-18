@@ -37,7 +37,7 @@ const registerController = async (req, res, next) => {
         return next(err);
       }
       req.flash("success", "Welcome to Stock Management.");
-      res.redirect("/api/v1/stock/home");
+      res.redirect("/");
     });
     // This line will not be executed as the response is already redirected above
     // req.flash("success", "Welcome to Stock Management.");
