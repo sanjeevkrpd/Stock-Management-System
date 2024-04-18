@@ -72,7 +72,7 @@ const editPageController = async (req, res) => {
     let stock = await stockModel.findById(req.params.id);
     if (!stock) {
       req.flash("error", "Product Doesn't Exist AnyMore.");
-      return res.redirect("/api/v1/stock/home");
+      res.redirect("/api/v1/stock/home");
     }
     res.render("pages/edit.ejs", { stock });
     req.flash("success", "Successfully Fetch The Details ...");
@@ -110,11 +110,13 @@ const searchController = async (req, res) => {
     const user = await userModel.findById(req.body.userId).populate("stocks");
 
     // Filter stocks based on the search query
-    const searchResults = user.stocks.filter(stock => stock.title.includes(req.body.title));
+    const searchResults = user.stocks.filter((stock) =>
+      stock.title.toLowerCase().includes(req.body.title.toLowerCase())
+    );
 
     if (searchResults.length === 0) {
       req.flash("error", "Oops! No results found.");
-      return res.redirect("/"); // Redirect to the homepage or another appropriate route
+      res.redirect("/"); // Redirect to the homepage or another appropriate route
     }
 
     req.flash("success", "Search results found.");
@@ -124,7 +126,7 @@ const searchController = async (req, res) => {
     req.flash("error", "Something went wrong.");
     res.redirect("/api/v1/user/login");
   }
-}
+};
 module.exports = {
   getHomePageController,
   getAddPageController,
@@ -134,5 +136,5 @@ module.exports = {
   deleteController,
   editPageController,
   deleteController,
-  searchController
+  searchController,
 };

@@ -20,17 +20,36 @@
             placeholder="Add a catcy title"
             required
           />
-          <div class="mb-3">
-            <label for="company" class="form-label">Company</label>
-            <input
-              type="company"
-              class="form-control"
-              id="company"
-              name="stock[company]"
-              placeholder="Add company name"
-              required
-            />
-          <div class="valid-feedback">title looks good</div>
+          <div class="valid-feedback">Title looks good</div>
+        </div>
+        <div class="mb-3">
+          <label for="company" class="form-label">Company</label>
+          <input
+            type="company"
+            class="form-control"
+            id="company"
+            name="stock[company]"
+            placeholder="Add company name"
+            required
+          />
+          <div class="valid-feedback">company looks good</div>
+        </div>
+        <div class="mb-3">
+          <label for="title" class="form-label">Category</label>
+          <select name="stock[category]" id="category" class="form-control">
+            <option value="">---Select The Category---</option>
+            <option value="food">Food</option>
+            <option value="clothes">Clothes</option>
+            <option value="electronic">Electronic</option>
+            <option value="computer/laptops">Computer / Laptop</option>
+            <option value="mobiles">Mobiles</option>
+            <option value="studyMaterial">Study Material</option>
+            <option value="medicine">Medicine</option>
+            <option value="coldrinks">Coldrinks</option>
+            <option value="HouseHold">House Hold</option>
+            <option value="others">Others</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid category!</div>
         </div>
         <div class="mb-3">
           <label for="description" class="form-label">Description</label>

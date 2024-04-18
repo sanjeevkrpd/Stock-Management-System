@@ -61,7 +61,7 @@ a i {
 
 .indexpage{
 
-   height: 66vh;
+   min-height: 67vh;
 }
 
 .container {

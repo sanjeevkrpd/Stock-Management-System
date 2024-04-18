@@ -36,6 +36,24 @@
           <div class="valid-feedback">title looks good</div>
         </div>
         <div class="mb-3">
+          <label for="title" class="form-label">Category</label>
+          <select name="stock[category]" id="category" class="form-control">
+            <option value="<%=stock.category%>"><%=stock.category%></option>
+            <option value="">---Select The Category---</option>
+            <option value="food">Food</option>
+            <option value="clothes">Clothes</option>
+            <option value="electronic">Electronic</option>
+            <option value="computer/laptops">Computer / Laptop</option>
+            <option value="mobiles">Mobiles</option>
+            <option value="studyMaterial">Study Material</option>
+            <option value="medicine">Medicine</option>
+            <option value="coldrinks">Coldrinks</option>
+            <option value="HouseHold">House Hold</option>
+            <option value="others">Others</option>
+          </select>
+          <div class="invalid-feedback">Please select a valid category!</div>
+        </div>
+        <div class="mb-3">
           <label for="description" class="form-label">Description</label>
           <textarea
             rows="4"
